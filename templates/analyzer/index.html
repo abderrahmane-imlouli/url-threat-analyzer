@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URL Threat Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'analyzer/css/style.css' %}">
+</head>
+<body>
+
+  <!-- Background grid -->
+  <div class="bg-grid"></div>
+  <div class="scan-line"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-icon">⬡</span>
+        <span class="logo-text">URL THREAT ANALYZER</span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <p class="subtitle">Static · VirusTotal · urlscan.io · WHOIS · DNS</p>
+    </header>
+
+    <!-- Input Section -->
+    <div class="input-card">
+      <div class="input-label">TARGET URL</div>
+      <div class="input-row">
+        <input type="text" id="urlInput" placeholder="https://example.com" autocomplete="off" spellcheck="false" />
+        <button id="scanBtn" onclick="startScan()">
+          <span class="btn-text">ANALYZE</span>
+          <span class="btn-icon">▶</span>
+        </button>
+      </div>
+      <div id="inputError" class="input-error hidden"></div>
+    </div>
+
+    <!-- Progress -->
+    <div id="progressSection" class="hidden">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="progress-steps">
+        <span id="step1" class="step">◈ Static</span>
+        <span id="step2" class="step">◈ WHOIS</span>
+        <span id="step3" class="step">◈ DNS</span>
+        <span id="step4" class="step">◈ VirusTotal</span>
+        <span id="step5" class="step">◈ urlscan.io</span>
+      </div>
+      <div class="progress-msg" id="progressMsg">Initializing scan...</div>
+    </div>
+
+    <!-- Results -->
+    <div id="resultsSection" class="hidden">
+
+      <!-- Threat Banner -->
+      <div id="threatBanner" class="threat-banner"></div>
+
+      <!-- Grid of cards -->
+      <div class="results-grid">
+
+        <!-- Static Analysis -->
+        <div class="card" id="cardStatic">
+          <div class="card-header">
+            <span class="card-icon">🔬</span>
+            <span>STATIC ANALYSIS</span>
+          </div>
+          <div class="card-body" id="staticBody"></div>
+        </div>
+
+        <!-- WHOIS -->
+        <div class="card" id="cardWhois">
+          <div class="card-header">
+            <span class="card-icon">🕵️</span>
+            <span>WHOIS LOOKUP</span>
+          </div>
+          <div class="card-body" id="whoisBody"></div>
+        </div>
+
+        <!-- DNS -->
+        <div class="card" id="cardDns">
+          <div class="card-header">
+            <span class="card-icon">🌐</span>
+            <span>DNS RESOLUTION</span>
+          </div>
+          <div class="card-body" id="dnsBody"></div>
+        </div>
+
+        <!-- VirusTotal -->
+        <div class="card" id="cardVt">
+          <div class="card-header">
+            <span class="card-icon">🛡️</span>
+            <span>VIRUSTOTAL</span>
+          </div>
+          <div class="card-body" id="vtBody"></div>
+        </div>
+
+        <!-- urlscan.io (full width) -->
+        <div class="card card-wide" id="cardUrlscan">
+          <div class="card-header">
+            <span class="card-icon">🧪</span>
+            <span>URLSCAN.IO SANDBOX</span>
+          </div>
+          <div class="card-body" id="urlscanBody"></div>
+        </div>
+
+      </div>
+
+      <!-- Scan again button -->
+      <div class="center-btn">
+        <button class="secondary-btn" onclick="resetScan()">⟳ SCAN ANOTHER URL</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="{% static 'analyzer/js/main.js' %}"></script>
+</body>
+</html>
