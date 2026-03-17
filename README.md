@@ -1,4 +1,4 @@
-# 🔍 URL Threat Analyzer (Cybersecurity Intelligence Tool)
+# URL Threat Analyzer (Cybersecurity Intelligence Tool)
 
 > Analyze suspicious URLs using multi-source threat intelligence (VirusTotal, urlscan.io, WHOIS & DNS) in one unified dashboard.
 
@@ -8,19 +8,19 @@
 
 ---
 
-## ✨ Features
+## Features
 
 | Module             | Description                                                                         |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| 🔬 Static Analysis | Detects missing HTTPS, IP-based URLs, suspicious keywords, encoded characters       |
-| 🕵️ WHOIS Lookup   | Shows domain age, registrar, creation/expiry dates — flags newly registered domains |
-| 🌐 DNS Resolution  | Resolves domain to IP address                                                       |
-| 🛡️ VirusTotal     | Scans against 70+ antivirus engines and threat databases                            |
-| 🧪 urlscan.io      | Full sandbox scan with screenshot, verdict, and page metadata                       |
+| Static Analysis | Detects missing HTTPS, IP-based URLs, suspicious keywords, encoded characters       |
+| WHOIS Lookup   | Shows domain age, registrar, creation/expiry dates — flags newly registered domains |
+| DNS Resolution  | Resolves domain to IP address                                                       |
+| VirusTotal     | Scans against 70+ antivirus engines and threat databases                            |
+| urlscan.io      | Full sandbox scan with screenshot, verdict, and page metadata                       |
 
 ---
 
-## 🧠 Architecture
+## Architecture
 
 ```
 User Input URL
@@ -40,7 +40,7 @@ Frontend Dashboard
 
 ---
 
-## 📊 Example Analysis
+## Example Analysis
 
 | Check           | Result                   |
 | --------------- | ------------------------ |
@@ -53,7 +53,7 @@ Frontend Dashboard
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
 * Security analysts investigating suspicious URLs
 * Bug bounty hunters analyzing phishing links
@@ -62,13 +62,13 @@ Frontend Dashboard
 
 ---
 
-## 🖥️ Demo
+## Demo
 
 > Coming soon — hosted on PythonAnywhere
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -105,7 +105,7 @@ Open your browser at: http://127.0.0.1:8000
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 This project is ready to deploy on:
 
@@ -125,7 +125,7 @@ in the platform dashboard instead of using a `.env` file.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * Backend — Python, Django
 * APIs — VirusTotal v3, urlscan.io v1
@@ -133,7 +133,7 @@ in the platform dashboard instead of using a `.env` file.
 
 ---
 
-## 🚧 Future Improvements
+## Future Improvements
 
 * Machine Learning-based risk scoring
 * Browser extension version
@@ -142,6 +142,6 @@ in the platform dashboard instead of using a `.env` file.
 
 ---
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License — see the LICENSE file for details.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
