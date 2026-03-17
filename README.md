@@ -1,63 +1,147 @@
-# 🔍 URL Threat Analyzer
+# 🔍 URL Threat Analyzer (Cybersecurity Intelligence Tool)
 
-أداة تحليل أمان URLs بواجهة Django.
+> Analyze suspicious URLs using multi-source threat intelligence (VirusTotal, urlscan.io, WHOIS & DNS) in one unified dashboard.
 
-## المميزات
-- 🔬 **Static Analysis** — فحص HTTPS، IP، كلمات مشبوهة
-- 🕵️ **WHOIS Lookup** — عمر الدومين، المالك، تاريخ الانتهاء
-- 🌐 **DNS Resolution** — تحويل الدومين لـ IP
-- 🛡️ **VirusTotal** — فحص بأكثر من 70 محرك
-- 🧪 **urlscan.io** — Sandbox كامل مع screenshot
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Django](https://img.shields.io/badge/Django-4.2-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
 ---
 
-## التثبيت
+## ✨ Features
 
-### 1. تثبيت المتطلبات
+| Module             | Description                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| 🔬 Static Analysis | Detects missing HTTPS, IP-based URLs, suspicious keywords, encoded characters       |
+| 🕵️ WHOIS Lookup   | Shows domain age, registrar, creation/expiry dates — flags newly registered domains |
+| 🌐 DNS Resolution  | Resolves domain to IP address                                                       |
+| 🛡️ VirusTotal     | Scans against 70+ antivirus engines and threat databases                            |
+| 🧪 urlscan.io      | Full sandbox scan with screenshot, verdict, and page metadata                       |
+
+---
+
+## 🧠 Architecture
+
+```
+User Input URL
+      ↓
+Backend (Django)
+      ↓
++ Static Analysis
++ WHOIS Lookup
++ DNS Resolution
++ VirusTotal API
++ urlscan.io API
+      ↓
+Aggregated Results
+      ↓
+Frontend Dashboard
+```
+
+---
+
+## 📊 Example Analysis
+
+| Check           | Result                   |
+| --------------- | ------------------------ |
+| HTTPS           | ❌ Missing                |
+| Domain Age      | ⚠️ 2 days (Suspicious)   |
+| VirusTotal      | 🚨 12/70 engines flagged |
+| urlscan Verdict | ⚠️ Suspicious            |
+
+> Final Risk Score: **High Risk**
+
+---
+
+## 🎯 Use Cases
+
+* Security analysts investigating suspicious URLs
+* Bug bounty hunters analyzing phishing links
+* SOC teams performing quick threat triage
+* Students learning web security analysis
+
+---
+
+## 🖥️ Demo
+
+> Coming soon — hosted on PythonAnywhere
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* Python 3.11+
+* A free VirusTotal API key
+* A free urlscan.io API key
+
+### Installation
+
 ```bash
+git clone https://github.com/abderrahmane-imlouli/url-threat-analyzer.git
+cd url-threat-analyzer
 pip install -r requirements.txt
 ```
 
-### 2. إعداد API Keys
-انسخ ملف `.env` وضع مفاتيحك:
+### Configuration
+
+Create a `.env` file in the project root:
+
 ```
-VT_API_KEY=مفتاحك_من_virustotal.com
-URLSCAN_API_KEY=مفتاحك_من_urlscan.io
+VT_API_KEY=your_virustotal_api_key
+URLSCAN_API_KEY=your_urlscan_api_key
 ```
 
-> ⚠️ ملف `.env` مذكور في `.gitignore` — **لن يُرفع على GitHub أبداً**
+> ⚠️ Never commit `.env` to GitHub. It is already listed in `.gitignore`.
 
-### 3. تشغيل السيرفر
+### Run Locally
+
 ```bash
 python manage.py runserver
 ```
-ثم افتح: **http://127.0.0.1:8000**
+
+Open your browser at: http://127.0.0.1:8000
 
 ---
 
-## النشر على Railway
+## 🌐 Deployment
 
-1. ارفع الكود على GitHub
-2. اذهب لـ [railway.app](https://railway.app) وربط الـ repo
-3. في **Variables** أضف:
-   ```
-   VT_API_KEY=مفتاحك
-   URLSCAN_API_KEY=مفتاحك
-   ```
-4. Railway سيشغّل `Procfile` تلقائياً
+This project is ready to deploy on:
+
+* PythonAnywhere (free tier available)
+* Railway
+
+Set your environment variables (`VT_API_KEY`, `URLSCAN_API_KEY`)
+in the platform dashboard instead of using a `.env` file.
 
 ---
 
-## هيكل المشروع
-```
-url_analyzer/
-├── .env              ← مفاتيح API (لا تُرفع على GitHub)
-├── .gitignore
-├── Procfile          ← للنشر على Railway
-├── requirements.txt
-├── manage.py
-├── url_analyzer/     ← إعدادات Django
-├── analyzer/         ← منطق التحليل
-├── templates/
-└── static/
-```
+## 🔒 Security Notes
+
+* API keys are loaded from environment variables — never hardcoded
+* `.env` is excluded from version control via `.gitignore`
+* All scanning is done server-side — no keys are exposed to the browser
+
+---
+
+## 🛠️ Tech Stack
+
+* Backend — Python, Django
+* APIs — VirusTotal v3, urlscan.io v1
+* Frontend — Vanilla JS, CSS (dark cybersecurity theme)
+
+---
+
+## 🚧 Future Improvements
+
+* Machine Learning-based risk scoring
+* Browser extension version
+* Real-time phishing detection
+* Integration with SIEM tools
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License — see the LICENSE file for details.
