@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --noinput && gunicorn url_analyzer.wsgi:application
+web: python manage.py collectstatic --noinput && gunicorn url_analyzer.wsgi:application --bind 0.0.0.0:$PORT
