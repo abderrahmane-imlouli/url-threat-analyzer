@@ -52,6 +52,14 @@ Frontend Dashboard
 > Final Risk Score: **High Risk**
 
 ---
+## Demo
+🔗 [url-threat-analyzer Demo](https://url-threat-analyzer-od81.onrender.com)
+
+### Home Page
+![Home](docs/analyze_site.png)
+
+### Scan Results
+![Results](docs/analyze_site_.png)
 
 ## Use Cases
 
@@ -64,7 +72,7 @@ Frontend Dashboard
 
 ## Demo
 
-> Coming soon — hosted on PythonAnywhere
+>🔗 [Live Demo](https://url-threat-analyzer-od81.onrender.com)
 
 ---
 
@@ -107,10 +115,8 @@ Open your browser at: http://127.0.0.1:8000
 
 ## Deployment
 
-This project is ready to deploy on:
-
-* PythonAnywhere (free tier available)
-* Railway
+* Render (currently deployed ✅)
+* PythonAnywhere
 
 Set your environment variables (`VT_API_KEY`, `URLSCAN_API_KEY`)
 in the platform dashboard instead of using a `.env` file.
